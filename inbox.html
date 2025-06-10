@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ma boîte de réception</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="gradient">
+  <div class="container">
+    <h1>📬 Tes messages anonymes</h1>
+    <div id="messages"></div>
+  </div>
+  <script>
+    const messages = JSON.parse(localStorage.getItem("inbox_ayoub") || "[]");
+    const container = document.getElementById("messages");
+    if (messages.length === 0) {
+      container.innerHTML = "<p>Aucun message pour l’instant.</p>";
+    } else {
+      messages.forEach(msg => {
+        const p = document.createElement("p");
+        p.className = "bubble";
+        p.innerText = msg;
+        container.appendChild(p);
+      });
+    }
+  </script>
+</body>
+</html>
