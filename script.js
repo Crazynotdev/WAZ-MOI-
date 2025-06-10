@@ -1,7 +1,7 @@
 function generateLink() {
   const username = document.getElementById("username").value.trim().toLowerCase();
   if (username) {
-    window.location.href = `u/${username}.html`;
+    window.location.href = `u-${username}.html`;
   } else {
     alert("Entre un pseudo !");
   }
